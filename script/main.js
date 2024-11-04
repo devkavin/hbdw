@@ -40,7 +40,7 @@ const fetchData = () => {
         if ( dataArr.length === dataArr.indexOf(customData) + 1 ) {
           // animationTimeline();
           Swal.fire({
-            title: 'Wanna play music in the background?',
+            title: 'Wanna play some music in the background?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
