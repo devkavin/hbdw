@@ -1,3 +1,23 @@
+// // trigger to play music in the background with sweetalert
+// window.addEventListener('load', () => {
+//   Swal.fire({
+//       title: 'Do you want to play music in the background?',
+//       icon: 'warning',
+//       showCancelButton: true,
+//       confirmButtonColor: '#3085d6',
+//       cancelButtonColor: '#d33',
+//       confirmButtonText: 'Yes',
+//       cancelButtonText: 'No',
+//   }).then((result) => {
+//       if (result.isConfirmed) {
+//           document.querySelector('.song').play();
+//           animationTimeline();
+//       } else {
+//           animationTimeline();
+//       }
+//   });
+// });
+
 // Import the data to customize and insert them into page
 const fetchData = () => {
   fetch("customize.json")
@@ -18,11 +38,28 @@ const fetchData = () => {
         // Check if the iteration is over
         // Run amimation if so
         if ( dataArr.length === dataArr.indexOf(customData) + 1 ) {
-          animationTimeline();
+          // animationTimeline();
+          Swal.fire({
+            title: 'Wanna play music in the background?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.querySelector('.song').play();
+                animationTimeline();
+            } else {
+                animationTimeline();
+            }
+        });
         } 
       });
     });
 };
+
 
 // Animation Timeline
 const animationTimeline = () => {
